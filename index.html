@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        *{
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        article{ 
+            position: relative;
+            max-width: 700px;
+            border: 1px solid #000;
+            border-radius: 14px;
+            padding: 32px;
+            margin: 48px auto;
+        }
+
+        input, textarea{
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 12px;
+        }
+
+        .rango{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    </style>
+    <title>Introduccion a Git</title>
+</head>
+<body>
+    <h1>Introducción a Git</h1>
+    <main>
+        <article>
+            <h2>Formulario de Estado físico</h2>
+            <form>
+
+                <p>
+                    <label>
+                        Nombre
+                        <input name="usuario" placeholder="Nombre completo" required pattern=".{4,32}"/>
+                    </label>
+                </p>
+
+                <fieldset>
+                    <legend>Sexo:</legend>
+                    <p>
+                        <label>
+                            <input style="display: inline; width: initial;" type="radio" name="sexo" value="M"/>
+                            Masculino
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input style="display: inline; width: initial;" type="radio" name="sexo" value="F"/>
+                            Femenino
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input style="display: inline; width: initial;" type="radio" name="sexo" value="no sabe"/>
+                            No decidido
+                        </label>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <label>
+                        fecha de nacimeiento
+                        <input name="nacimiento" required type="date"/>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        Peso
+                        <input name="peso" placeholder="Su peso en libras(lbs)" required pattern="\d{1,3}|\d{1,3}\.\d{1,2}"/>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        Estatura
+                        <input name="estatura" placeholder="Su estatura en pies(fts)" required pattern="\d|\d\.\d{1,2}"/>
+                    </label>
+                </p>
+
+                <p>
+                    <fieldset>
+                        <legend>Condicion de Salud</legend>
+
+                        <p>
+                            <label>
+                                <input name="alergias" style="display: inline; width: initial;" type="checkbox"/>
+                                ¿Alergias?.
+                            </label>
+                        </p>
+
+                        <p>
+                            <label>
+                                <input name="operaciones" style="display: inline; width: initial;" type="checkbox"/>
+                                ¿Ha sido operado?.
+                            </label>
+                        </p>
+
+                        <p>
+                            <label>
+                                <input name="medicamentos" style="display: inline; width: initial;" type="checkbox"/>
+                                ¿Toma medicamentos?.
+                            </label>
+                        </p>
+
+                        <p>
+                            <label>
+                                De tener alguna del as condiciones previas; especifique a continuación:
+                                <textarea name="detalles" placeholder="Describir aqui..."></textarea>
+                            </label>
+                        </p>
+
+                    </fieldset>
+                </p>
+
+                <p>
+                    <label>
+                        ¿Como te has sentido ultimamente?
+                        <div class="rango">
+                            <span>Horrible</span>
+                            <span>Regular</span>
+                            <span>Exelente</span>
+                        </div>
+                        <input type="range" name="condicion" min="0" max="10"/>
+                    </label>
+                </p>
+
+                <details>
+                    <summary>Finalizar</summary>
+                    <p>Al hacer submit el formulario se imprimira en consola.</p>
+                    <input type="submit" value="Ejecutar Formulario"/>
+                </details>
+            </form>
+        </article>
+    </main>
+
+    <footer>
+        <ul>
+            <li>Copyrights: VarelaIT®</li>
+        </ul>
+    </footer>
+
+    <script>
+        const form= document.querySelector('form');
+        form.onsubmit= (ev)=>{
+            ev.preventDefault();
+            let data= new FormData(ev.target);
+            console.log(data);
+            alert('El formulario fue imprento en la consola.');
+        }
+    </script>
+</body>
+</html>
+
+
